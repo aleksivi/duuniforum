@@ -1,14 +1,16 @@
 class UsersController < ApplicationController
+before_filter :authenticate, :except => [:show, :new, :create]
+
 
 #before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-before_filter :correct_user, :only => [:edit, :update]
-before_filter :admin_user,   :only => :destroy
+#before_filter :correct_user, :only => [:edit, :update]
+#before_filter :admin_user,   :only => :destroy
 
 
 
 #before_filter :authenticate, :only => [:index, :edit, :update]
 #before_filter :authenticate, :only => [:edit, :update]
-before_filter :correct_user, :only => [:edit, :update]
+#before_filter :correct_user, :only => [:edit, :update]
 
 
 
@@ -22,6 +24,31 @@ def show
     @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
+def following
+#show_follow(:following)
+
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+#show_follow(:followers)
+
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+def show_follow(action)
+    @title = action.to_s.capitalize
+    @user = User.find(params[:id])
+    @users = @user.send(action).paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+
   
 
 def new
@@ -61,15 +88,17 @@ def destroy
   end
 
 
+
 private
 
-    def correct_user
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
-def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
+
 end
 
 end

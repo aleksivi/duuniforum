@@ -3,7 +3,7 @@
 }
 
 body {
-  background: #cff;
+  background: #ccc;
 }
 
 header {
@@ -17,7 +17,7 @@ header img {
 
 section {
   margin-top: 1em;
-  font-size: 120%;
+  font-size: 100%;
   padding: 20px;
   background: #fff;
 }
@@ -31,7 +31,7 @@ section h1 {
 a {
   color: #09c;
   text-decoration: none;
-}
+}i
 
 a:hover {
   color: #069;
@@ -94,7 +94,7 @@ a.signup_button {
 footer {
   text-align: center;
   margin-top: 10px;
-  width: 710px;
+  width: 690px;
   margin-left: auto;
   margin-right: auto;
 }

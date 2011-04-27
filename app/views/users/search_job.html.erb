@@ -1,0 +1,88 @@
+<h1>Search</h1>
+
+
+<div class="field">
+
+<%=:Kunta %><br />
+
+<%= text_field "post", "body", "cols" => 20, "rows" => 40%>
+
+
+<div class="field">
+
+<select name="post[person_id]">
+    <option value="1">Maakunta</option>
+    <option value="2">------</option>
+    <option value="3">Uusimaa</option>
+    <option value="4">Häme</option>
+    <option value="5">Savo</option>
+    <option value="6">Karjala</option>
+    <option value="7">Lappi</option>
+
+
+
+
+  </select>
+
+
+</div>
+
+<div class="field">
+
+<select name="post[person_id]">
+    <option value="1">Maa</option>
+    <option value="2">------</option>
+    <option value="3">Ruotsi</option>
+    <option value="4">Viro</option>
+    <option value="5">Saksa</option>
+    <option value="6">Kiina</option>
+    <option value="7">Venäjä</option>
+
+
+
+
+  </select>
+
+
+</div>
+
+<div class="field">
+Työn kesto:<br>
+<input type="checkbox" name="selection"> Yli 12 kk
+<input type="checkbox" name="selection" checked> 3-12 kk
+<input type="checkbox" name="selection"> alle 3 kk
+<input type="checkbox" name="selection"> Kesätyö
+</form>
+</div>
+
+<div class="field">
+Työn tyyppi:<br>
+<input type="checkbox" name="selection"> Kaikki
+<input type="checkbox" name="selection" checked> Palkkatyö
+<input type="checkbox" name="selection"> Provisiopalkatut
+<input type="checkbox" name="selection"> Yrittäjä
+</form>
+</div>
+
+<%=:Sanahaku %><br />
+
+<%= text_field "post", "body", "cols" => 20, "rows" => 40%>
+
+
+<div class="field">
+</div>
+
+<div class="field">
+</div>
+<div class="field">
+</div>
+
+<div class="field">
+</div>
+
+
+
+<div class="field">
+<INPUT TYPE=SUBMIT VALUE="Hae">
+
+</div>

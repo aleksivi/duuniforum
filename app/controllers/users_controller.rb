@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
-before_filter :authenticate, :except => [:show, :new, :create]
+#before_filter :authenticate, :except => [:show, :new, :create ]
+
 
 
 #before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-#before_filter :correct_user, :only => [:edit, :update]
+before_filter :authenticate, :only => [:index, :edit, :update]
+
+before_filter :correct_user, :only => [:edit, :update]
+
 #before_filter :admin_user,   :only => :destroy
 
 
-
-#before_filter :authenticate, :only => [:index, :edit, :update]
-#before_filter :authenticate, :only => [:edit, :update]
 #before_filter :correct_user, :only => [:edit, :update]
 
 
@@ -60,7 +61,7 @@ def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the DuuniForum!"
       redirect_to @user      
     else
       @title = "Sign up"
@@ -68,7 +69,7 @@ def create
     end
 
  def edit
-    
+    @user = User.find(params[:id])
      @title = "Edit user"
   end
 
@@ -91,18 +92,22 @@ def destroy
 
 private
 
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
 def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
 
+
+	def authenticate
+	deny_access unless signed_in?
 end
 
-end
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 
+end
+end
 end
 
 

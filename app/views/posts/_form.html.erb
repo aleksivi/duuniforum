@@ -1,0 +1,124 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :employer %><br />
+    <%= f.text_field :employer %>
+  </div>
+  <div class="field">
+    <%= f.label :homepage %><br />
+    <%= f.text_field :homepage %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_person %><br />
+    <%= f.text_field :contact_person %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :job_title %><br />
+    <%= f.text_field :job_title %>
+  </div>
+  <div class="field">
+    <%= f.label :industry_id %><br />
+   <%=  collection_select(:post, :industry_id, Industry.all, :id, :name , options ={:prompt => ""} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :focusing_section_id %><br />
+     <%= collection_select(:post, :focusing_section_id, FocusingSection.find_all_by_industry_id(@post.industry_id), :id, :name, options ={:prompt => ""}) %>   
+</div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :street_address %><br />
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :post_number %><br />
+    <%= f.text_field :post_number %>
+  </div>
+  <div class="field">
+    <%= f.label :office %><br />
+    <%= f.text_field :office %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br />
+   <%=  collection_select(:post, :country_id, Country.all, :id, :name , options ={:prompt => ""} ) %>
+  </div>
+  <div class="field">
+    <%= f.label :job_length %><br />
+    <%= f.text_field :job_length %>
+  </div>
+  <div class="field">
+    <%= f.label :job_type %><br />
+    <%= f.text_field :job_type %>
+  </div>
+  <div class="field">
+    <%= f.label :job_starts %><br />
+    <%= f.date_select :job_starts %>
+  </div>
+  <div class="field">
+    <%= f.label :post_ends %><br />
+    <%= f.date_select :post_ends %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("select#post_industry_id").change(function(){
+            var id_value_string = $(this).val();
+            if (id_value_string == "") { 
+                // if the id is empty remove all the sub_selection options from being selectable and do not do any ajax
+                $("select#post_focusing_section_id option").remove();
+                var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                $(row).appendTo("select#post_focusing_section_id");
+            }
+            else {
+                // Send the request and update sub category dropdown 
+                $.ajax({
+                    dataType: "json",
+                    cache: false,
+                    url: '/focusing_sections/for_industryid/' + id_value_string,
+                    timeout: 2000,
+                    error: function(XMLHttpRequest, errorTextStatus, error){
+                        alert("Failed to submit : "+ errorTextStatus+" ;"+error);
+                    },
+                    success: function(data){                    
+                        // Clear all options from sub category select 
+                        $("select#post_focusing_section_id option").remove();
+                        //put in a empty default line
+                        var row = "<option value=\"" + "" + "\">" + "" + "</option>";
+                        $(row).appendTo("select#post_focusing_section_id");                        
+                        // Fill sub category select 
+                        $.each(data, function(i, j){
+                            row = "<option value=\"" + j.focusing_section.id + "\">" + j.focusing_section.name + "</option>";   
+                            $(row).appendTo("select#post_focusing_section_id");                     
+                        });             
+                     }
+                });
+            };
+                });
+    });
+</script>
+

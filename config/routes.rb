@@ -1,12 +1,28 @@
 SampleApp::Application.routes.draw do
  
+
+  resources :countries
+
+  resources :focusing_sections
+
+  resources :posts
+
+  resources :industries
+
+ 
+  resources :galleries
+
+  resources :sub_sections
+
+  resources :sections
+
 resources :users do
     member do
       get :following, :followers
     end
   end
 
- #get "sessions/new"
+ get "sessions/new"
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
@@ -14,16 +30,20 @@ resources :users do
   resources :relationships, :only => [:create, :destroy]
 
 
-  #get "users/new"
+  get "users/new"
+ match '/focusing_sections/for_industryid/:id' => 'focusing_sections#for_industryid'
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/sub_sections/for_sectionid/:id' => 'sub_sections#for_sectionid'
 
-
-  match '/contact', :to => 'pages#contact'
+  match '/post_job',  :to => 'posts#new'
+  match '/terms_of_use', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
+  match '/search',  :to => 'users#search_job'
+
 
   root :to => 'pages#home'
   # The priority is based upon order of creation:

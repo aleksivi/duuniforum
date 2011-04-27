@@ -8,18 +8,24 @@ def home
 
   
 end
- 
 
-  def contact
-    @title = "Contact"
+  def terms_of_use
+    @title = "Terms of Use"
   end
+def index
+  @projects = Project.search(params[:search])
+end
 
   def about
     @title = "About"
   end
+   def search
+    @title = "Search"
+end
 def help
     @title = "Help"
   end
+
 end
 end
 

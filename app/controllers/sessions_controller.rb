@@ -12,7 +12,7 @@ user = User.authenticate(params[:session][:email],
       render 'new'
     else
       sign_in user
-      redirect_back_or user
+      redirect_back_or root_path
 
 end
  

@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Employer:</b>
+  <%= @post.employer %>
+</p>
+
+<p>
+  <b>Homepage:</b>
+  <%= @post.homepage %>
+</p>
+
+<p>
+  <b>Contact person:</b>
+  <%= @post.contact_person %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @post.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @post.phone %>
+</p>
+
+<p>
+  <b>Job title:</b>
+  <%= @post.job_title %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%= @post.industry_id %>
+</p>
+
+<p>
+  <b>Focusing section:</b>
+  <%= @post.focusing_section_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @post.description %>
+</p>
+
+<p>
+  <b>Street address:</b>
+  <%= @post.street_address %>
+</p>
+
+<p>
+  <b>Post number:</b>
+  <%= @post.post_number %>
+</p>
+
+<p>
+  <b>Office:</b>
+  <%= @post.office %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @post.country_id %>
+</p>
+
+<p>
+  <b>Job length:</b>
+  <%= @post.job_length %>
+</p>
+
+<p>
+  <b>Job type:</b>
+  <%= @post.job_type %>
+</p>
+
+<p>
+  <b>Job starts:</b>
+  <%= @post.job_starts %>
+</p>
+
+<p>
+  <b>Post ends:</b>
+  <%= @post.post_ends %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

@@ -1,5 +1,3 @@
-require 'faker'
-
 namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
@@ -11,6 +9,7 @@ namespace :db do
 end
 
 def make_users
+  require 'faker'
   admin = User.create!(:name => "Example User",
                        :email => "example@railstutorial.org",
                        :password => "foobar",
@@ -28,6 +27,7 @@ def make_users
 end
 
 def make_microposts
+  require 'faker'
   User.all(:limit => 6).each do |user|
     50.times do
       content = Faker::Lorem.sentence(5)

@@ -12,6 +12,12 @@
 
 ActiveRecord::Schema.define(:version => 20110427074517) do
 
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -21,6 +27,14 @@ ActiveRecord::Schema.define(:version => 20110427074517) do
   create_table "focusing_sections", :force => true do |t|
     t.string   "name"
     t.integer  "industry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.string   "name"
+    t.integer  "industry_id"
+    t.integer  "sub_section_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,15 +87,29 @@ ActiveRecord::Schema.define(:version => 20110427074517) do
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sub_sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "section_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
-    t.string   "desc"
     t.string   "name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.boolean  "admin"
+    t.boolean  "admin",              :default => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

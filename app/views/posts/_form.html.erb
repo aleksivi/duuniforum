@@ -65,17 +65,17 @@
   </div>
   <div class="field">
     <%= f.label :job_length %><br />
-   <input type="checkbox" name="selection" value="1"> Yli 12 kk
-<input type="checkbox" name="selection" > 3-12 kk
-<input type="checkbox" name="selection"> alle 3 kk
-<input type="checkbox" name="selection"> Kesätyö
+  <%= f.radio_button :job_length, "yli 12kk" %> yli 12kk
+<%= f.radio_button :job_length, "3- 12kk" %> 3-12kk
+<%= f.radio_button :job_length, "alle 3 kk" %> alle 3 kk
+<%= f.radio_button :job_length, "Kesätyö" %> Kesätyö
   </div>
   <div class="field">
     <%= f.label :job_type %><br />
-   <input type="checkbox" name="selection"> Kaikki
-<input type="checkbox" name="selection" > Palkkatyö
-<input type="checkbox" name="selection"> Provisiopalkatut
-<input type="checkbox" name="selection"> Yrittäjä
+   <%= f.radio_button :job_type, "Palkkatyö" %> Palkkatyö
+<%= f.radio_button :job_type, "Proviisiopalkatut" %> Proviisiopalkatut
+<%= f.radio_button :job_type, "Yrittäjä" %> Yrittäjä
+
   </div>
   <div class="field">
     <%= f.label :job_starts %><br />

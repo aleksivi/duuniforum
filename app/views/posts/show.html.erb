@@ -32,12 +32,12 @@
 
 <p>
   <b>Industry:</b>
-  <%= @post.industry_id %>
+  <%= @post.industry.name %>
 </p>
 
 <p>
   <b>Focusing section:</b>
-  <%= @post.focusing_section_id %>
+  <%= @post.focusing_section.name %>
 </p>
 
 <p>
@@ -85,6 +85,11 @@
   <%= @post.post_ends %>
 </p>
 
+<% if signed_in? %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
+
+<% end %>
+
+
 <%= link_to 'Back', posts_path %>

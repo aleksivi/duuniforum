@@ -7,6 +7,8 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+@posts = Post.paginate(:page => params[:page])
+
 @posts = Post.search(params[:search])
     end
   end

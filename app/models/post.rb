@@ -10,7 +10,7 @@ validates_presence_of  :industry_id, :focusing_section_id, :country_id
 
 def self.search(search)
   if search
-    find(:all, :conditions => ['employer LIKE ?', "%#{search}%"])
+    find(:all, :conditions => ['employer LIKE ?',  "%#{search}%"])
   else
     find(:all)
   end

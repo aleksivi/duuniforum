@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+@posts = Post.search(params[:search])
     end
   end
 

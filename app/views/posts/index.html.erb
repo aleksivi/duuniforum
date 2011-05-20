@@ -1,10 +1,20 @@
 <h1>Listing posts</h1>
 
+<% form_tag posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+
 <table>
   <tr>
     <th>Employer</th>
     <th>Job title</th>
     <th>Office</th>
+     <th>Country</th>
     <th>Job starts</th>
     <th>Post ends</th>
     <th></th>
@@ -17,6 +27,7 @@
     <td><%= post.employer %></td>
     <td><%= post.job_title %></td>
     <td><%= post.office %></td>
+    <td><%= post.country.name %></td>	
     <td><%= post.job_starts %></td>
     <td><%= post.post_ends %></td>
     <td><%= link_to 'Show', post %></td>

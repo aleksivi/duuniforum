@@ -1,16 +1,15 @@
-<h1>Listing posts</h1>
+<h1>Selaa ilmoituksia</h1>
 
 
 
 
 <table>
   <tr>
-    <th>Employer</th>
-    <th>Job title</th>
-    <th>Office</th>
-     <th>Country</th>
-    <th>Job starts</th>
-    <th>Post ends</th>
+    <th>Työnantaja</th>
+    <th>Tehtävänimike</th>
+    <th>Toimipaikka</th>
+    <th>Työn alkamisajankohta</th>
+    <th>Haku päättyy</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,21 +20,20 @@
     <td><%= post.employer %></td>
     <td><%= post.job_title %></td>
     <td><%= post.office %></td>
-    <td><%= post.country.name %></td>	
     <td><%= post.job_starts %></td>
     <td><%= post.post_ends %></td>
 
 
 
-    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Näytä', post %></td>
 
  <% if signed_in? %>
 
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Muokkaa', edit_post_path(post) %></td>
 <% end %>
  <% if signed_in? %>
 
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Poista', post, :confirm => 'Are you sure?', :method => :delete %></td>
 <% end %>
 
   </tr>

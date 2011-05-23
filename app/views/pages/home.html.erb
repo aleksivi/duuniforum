@@ -3,24 +3,24 @@
  <h1>Duuniforum</h1>
 
   <p>
-    This is the home page of
-    <a href="http://duuniforum/">Duuniforum</a>
-    
+    Tämä on 
+    <a href="http://duuniforum/">Duuniforumin</a> 
+    etusivu.
   </p>
 
-  <%= link_to "Make a Job Post!", post_job_path, :class => "signup_button round" %>
+  <%= link_to "Tee työpaikkailmoitus!", post_job_path, :class => "signup_button round" %>
 
 
 <% else %>
   <h1>Duuniforum</h1>
 
   <p>
-    This is the home page of
-    <a href="http://duuniforum/">Duuniforum</a>
-    
+    Tämä on
+    <a href="http://duuniforum/">Duuniforumin</a>
+    etusivu.
   </p>
 
-  <%= link_to "Signin to make a Job Post!", signin_path, :class => "signup_button round" %>
+  <%= link_to "Kirjaudu sisään tehdäksesi työpaikkailmoitus!", signin_path, :class => "signup_button round" %>
 <% end %>
 
 

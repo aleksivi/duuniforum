@@ -1,19 +1,19 @@
-<h1>Sign in</h1>
+<h1>Kirjaudu sisään</h1>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "Sähköpostiosoite" %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :salasana %><br />
     <%= f.password_field :password %>
   </div>
   <div class="actions">
-    <%= f.submit "Sign in" %>
+    <%= f.submit "Kirjaudu sisään" %>
   </div>
 <% end %>
 
-<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+<p>Uusi käyttäjä? <%= link_to "Rekisteröidy!", signup_path %></p>
 
 

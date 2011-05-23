@@ -61,7 +61,7 @@ def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the DuuniForum!"
+      flash[:success] = "Tervetuloa Duuniforumin sivuille!"
       redirect_to @user      
     else
       @title = "Sign up"

@@ -1,95 +1,95 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Employer:</b>
+  <b>Työnantaja:</b>
   <%= @post.employer %>
 </p>
 
 <p>
-  <b>Homepage:</b>
+  <b>Kotisivut:</b>
   <%= @post.homepage %>
 </p>
 
 <p>
-  <b>Contact person:</b>
+  <b>Yhteyshenkilö:</b>
   <%= @post.contact_person %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Sähköpostiosoite:</b>
   <%= @post.email %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Puhelinnumero:</b>
   <%= @post.phone %>
 </p>
 
 <p>
-  <b>Job title:</b>
+  <b>Tehtävänimike:</b>
   <%= @post.job_title %>
 </p>
 
 <p>
-  <b>Industry:</b>
+  <b>Toimiala:</b>
   <%= @post.industry.name %>
 </p>
 
 <p>
-  <b>Focusing section:</b>
+  <b>Tarkennus:</b>
   <%= @post.focusing_section.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Kuvaus:</b>
   <%= @post.description %>
 </p>
 
 <p>
-  <b>Street address:</b>
+  <b>Lähiosoite:</b>
   <%= @post.street_address %>
 </p>
 
 <p>
-  <b>Post number:</b>
+  <b>Postinumero:</b>
   <%= @post.post_number %>
 </p>
 
 <p>
-  <b>Office:</b>
+  <b>Toimipaikka:</b>
   <%= @post.office %>
 </p>
 
 <p>
-  <b>Country:</b>
+  <b>Maa:</b>
   <%= @post.country.name %>
 </p>
 
 <p>
-  <b>Job length:</b>
+  <b>Työnkesto:</b>
   <%= @post.job_length %>
 </p>
 
 <p>
-  <b>Job type:</b>
+  <b>Työn tyyppi:</b>
   <%= @post.job_type %>
 </p>
 
 <p>
-  <b>Job starts:</b>
+  <b>Työn alkamisajankohta:</b> 
   <%= @post.job_starts %>
 </p>
 
 <p>
-  <b>Post ends:</b>
+  <b>Haku päättyy:</b>
   <%= @post.post_ends %>
 </p>
 
 <% if signed_in? %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Muokkaa', edit_post_path(@post) %> |
 
 <% end %>
 
 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Takaisin', posts_path %>

@@ -2,19 +2,17 @@
   <%= link_to logo, root_path %>
   <nav class="round">
     <ul>
-      <li><%= link_to "Home", root_path %></li>
- <li><%= link_to "Job Posts", posts_path %></li>
-         <li><%= link_to "Search", search_path %></li>
+      <li><%= link_to "Etusivu", root_path %></li>
+ <li><%= link_to "Työpaikkailmoitukset", posts_path %></li>
+         <li><%= link_to "Tarkka haku", search_path %></li>
 
       <% if signed_in? %>
-<li><%= link_to "Post Job", post_job_path %></li>
+<li><%= link_to "Lisää ilmoitus", post_job_path %></li>
 
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Profile", current_user %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>                     <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+                       <li><%= link_to "Kirjaudu ulos", signout_path, :method => :delete %></li>
       <% else %>
       
-      <li><%= link_to "Sign in", signin_path %></li>
+      <li><%= link_to "Kirjaudu sisään", signin_path %></li>
 
       <% end %>
     </ul>
@@ -23,7 +21,7 @@
 <% form_tag posts_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Etsi", :name => nil %>
   </p>
 <% end %>
 

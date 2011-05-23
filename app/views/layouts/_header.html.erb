@@ -3,11 +3,11 @@
   <nav class="round">
     <ul>
       <li><%= link_to "Etusivu", root_path %></li>
- <li><%= link_to "Työpaikkailmoitukset", posts_path %></li>
+ <li><%= link_to "Selaa ilmoituksia", posts_path %></li>
          <li><%= link_to "Tarkka haku", search_path %></li>
 
       <% if signed_in? %>
-<li><%= link_to "Lisää ilmoitus", post_job_path %></li>
+<li><%= link_to "Jätä ilmoitus", post_job_path %></li>
 
                        <li><%= link_to "Kirjaudu ulos", signout_path, :method => :delete %></li>
       <% else %>
